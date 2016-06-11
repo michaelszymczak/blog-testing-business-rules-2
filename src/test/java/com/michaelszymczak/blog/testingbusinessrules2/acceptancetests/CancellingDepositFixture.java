@@ -1,5 +1,6 @@
-package com.michaelszymczak.blog.testingbusinessrules2;
+package com.michaelszymczak.blog.testingbusinessrules2.acceptancetests;
 
+import com.michaelszymczak.blog.testingbusinessrules2.TimeDeposit;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
 
@@ -7,16 +8,18 @@ import org.junit.runner.RunWith;
 public class CancellingDepositFixture {
 
     public Result cancel(int lengthInYears, int initialAmount, int interestRate, int cancelledAfterMonths, int cancelledAfterDays) {
-        return Result.of(initialAmount); // A
+        TimeDeposit timeDeposit = new TimeDeposit(initialAmount);
+
+        return Result.of(timeDeposit.getCurrentAmount());
     }
 
     static class Result {
 
-        public final String amountTransferred; // B
+        public final String amountTransferred;
 
-        public static Result of(int amountTransferred) // C
+        public static Result of(int amountTransferred)
         {
-            return new Result(String.valueOf(amountTransferred)); // D
+            return new Result(String.valueOf(amountTransferred));
         }
 
         private Result(String amountTransferred)
