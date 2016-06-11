@@ -7,12 +7,21 @@ import org.junit.runner.RunWith;
 public class CancellingDepositFixture {
 
     public Result cancel(int lengthInYears, int initialAmount, int interestRate, int cancelledAfterMonths, int cancelledAfterDays) {
-        Result result = new Result();
-        result.amountTransferred = "TO BE IMPLEMENTED";
-        return result;
+        return Result.of(initialAmount); // A
     }
 
-    class Result {
-        public String amountTransferred;
+    static class Result {
+
+        public final String amountTransferred; // B
+
+        public static Result of(int amountTransferred) // C
+        {
+            return new Result(String.valueOf(amountTransferred)); // D
+        }
+
+        private Result(String amountTransferred)
+        {
+            this.amountTransferred = amountTransferred;
+        }
     }
 }

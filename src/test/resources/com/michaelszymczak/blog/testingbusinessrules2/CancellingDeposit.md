@@ -27,7 +27,7 @@ Then I should have TRANSFERRED pounds transferred to my account
 
 ## Business rules:
 
-### [One receives the same amount as deposited if the deposit cancelled during the first half](- "first half c:status=ExpectedToFail")
+### [One receives the same amount as deposited if the deposit cancelled during the first half](- "first half")
 
 For [1][length] year long deposit with [100][initial] initial amount and [2][interestrate]% interest rate,
 when I cancel it after MONTHS and DAYS:
